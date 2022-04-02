@@ -15,8 +15,8 @@ TensorRT的源代码仓库结构，下面是我们需要修改的文件
 <br>　　|--InferPlugin.cpp
 <br>　|--CMakeLists.txt
 
-## 一、安装tensorRT库
-此处略过
+## 一、安装TensorRT库
+此处略过。自定义插件需要提前安装TensorRT库，还需要下载TensorRT源文件，后续编译要用。
 
 ## 二、下载源文件
 Github下载TensorRT的编译源文件[链接](https://github.com/NVIDIA/TensorRT)，另外下载第三方库onnx，cub，protobuf并放到TensorRT源文件相应的文件夹里，如下所示：
