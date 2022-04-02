@@ -20,6 +20,7 @@ TensorRT的源代码仓库结构，下面是我们需要修改的文件
 
 ## 二、下载源文件
 Github下载TensorRT的编译源文件[链接](https://github.com/NVIDIA/TensorRT)，另外下载第三方库onnx，cub，protobuf并放到TensorRT源文件相应的文件夹里，如下所示：
+
 ![](https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/figs/1.png)
 ## 三、验证TensorRT是否能正确编译
 在TensorRT源文件根目录下执行下列命令：
