@@ -1,6 +1,6 @@
 # TensorRT自定义插件直接注册不编译TRT源文件踩坑
 <br> 使用REGISTER_TENSORRT_PLUGIN进行动态注册
-```bash
+```c++
 REGISTER_TENSORRT_PLUGIN(CustomPluginCreator);
 ```
 
