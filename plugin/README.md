@@ -4,10 +4,10 @@
 ![](https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/plugin/plugin.jpg)
 <br>注意，如果指定了明确的插件batch大小，可以使用IPluginV2，否则使用其他插件接口.
 <br>推荐使用IPluginV2DynamicExt，功能完备，可向下兼容。
-### nvinfer1::IPluginV2 
+## nvinfer1::IPluginV2 
 用于用户自定义层的插件类，最古老的接口，不支持动态尺寸，有着下列方法
 
-## nvinfer1::IPluginV2::clone() const
+### nvinfer1::IPluginV2::clone() const
 克隆插件对象，复制插件的内部参数并返回带有这些参数的新插件对象。
 将这个plugin对象克隆一份给TensorRT的builder、network或者engine.
 
