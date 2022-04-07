@@ -1,6 +1,6 @@
 # TensorRT Plugin接口介绍
 插件接口的继承关系
-[https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/plugin/plugin.jpg]
+![][https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/plugin/plugin.jpg]
 ## nvinfer1::IPluginV2 
 用于用户自定义层的插件类，最古老的接口，不支持动态尺寸，有着下列方法
 
