@@ -76,7 +76,7 @@ TensorRT调用此方法以判断pos索引的输入/输出是否支持inOut[pos].
 获取输出维度
 
 ##参考博客/文档
-[https://zhuanlan.zhihu.com/p/297002406]
-[https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/classnvinfer1_1_1_i_plugin_v2_i_o_ext.html]
-[https://blog.csdn.net/xuanwu_yan/article/details/111463822]
-[https://zhuanlan.zhihu.com/p/296861242]
+<br>![](https://zhuanlan.zhihu.com/p/297002406)
+<br>[https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/classnvinfer1_1_1_i_plugin_v2_i_o_ext.html]
+<br>[https://blog.csdn.net/xuanwu_yan/article/details/111463822]
+<br>[https://zhuanlan.zhihu.com/p/296861242]
