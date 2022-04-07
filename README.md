@@ -89,7 +89,7 @@ onnx.save(onnx_model,"custom.onnx")
 打开TRT源代码仓库，复制LeakyReluPlugin文件将其改成CustomPlugin，里面的头文件还有cpp文件统统改为自己想要的名字，顺便把代码里面的类型名也改了，见下图。
 <br>![](https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/figs/9.png)
 
-为了后续方便注册，自定义插件Custom类需要继承nvinfer1::IPluginV2DynamicExt接口，另外需要增加一些重写方法和属性，如下：
+为了后续方便注册，自定义插件Custom类需要继承nvinfer1::IPluginV2DynamicExt接口（- [Plugin接口介绍](https://github.com/zhangcheng828/TensorRT-Plugin/tree/main/plugin)），另外需要增加一些重写方法和属性，如下：
 <br>![](https://github.com/zhangcheng828/TensorRT-Plugin/blob/main/figs/10.png)
 
 下面是对应的cpp实现
