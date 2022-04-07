@@ -5,7 +5,7 @@
 ### nvinfer1::IPluginV2 
 用于用户自定义层的插件类，最古老的接口，不支持动态尺寸，有着下列方法
 
-### nvinfer1::IPluginV2::clone() const
+## nvinfer1::IPluginV2::clone() const
 克隆插件对象，复制插件的内部参数并返回带有这些参数的新插件对象。
 将这个plugin对象克隆一份给TensorRT的builder、network或者engine.
 
@@ -46,3 +46,37 @@
 
 ### supportsFormat()
 检查数据类型是否正确
+
+## nvinfer1::IPluginV2Ext()
+相比于IPluginV2，该接口支持不同的输出数据类型和跨批次广播。
+
+### nvinfer1::IPluginV2Ext::attachToContext(...)
+如果这个op使用到了一些其他东西，例如cublas handle，可以直接借助TensorRT内部提供的cublas handle:
+
+### canBroadcastInputAcrossBatch()
+如果插件可以使用跨批次广播而无需复制的输入，则返回 true。
+
+### detachFromContext()
+将插件对象从其执行上下文中分离出来。
+
+## nvinfer1::IPluginV2IOEXT()
+对比IPluginV2Ext，IPluginV2IOEXT支持更多的tensor类型和I/O类型
+
+### configurePlugin()
+配置这个插件op，判断输入和输出类型数量是否正确。官方还提到通过这个配置信息可以告知TensorRT去选择合适的算法(algorithm)去调优这个模型。
+
+### supportsFormatCombination()
+TensorRT调用此方法以判断pos索引的输入/输出是否支持inOut[pos].format和inOut[pos].type指定的格式/数据类型。
+如果插件支持inOut[pos]处的格式/数据类型，则返回true。 如果是否支持取决于其他的输入/输出格式/数据类型，则插件可以使其结果取决于inOut[0..pos-1]中的格式/数据类型，该格式/数据类型将设置为插件支持的值。 这个函数不需要检查inOut[pos + 1..nbInputs + nbOutputs-1]，pos的决定必须仅基于inOut[0..pos]。
+
+## nvinfer1::IPluginV2DynamicExt()
+类似于IPluginV2Ext，但支持动态尺寸，所提供接口与IPluginV2Ext类似，但是传入参数类型不同，详情参考官方文档
+
+### DimsExprs nvinfer1::IPluginV2DynamicExt::getOutputDimensions(...)
+获取输出维度
+
+##参考博客/文档
+[https://zhuanlan.zhihu.com/p/297002406]
+[https://docs.nvidia.com/deeplearning/tensorrt/api/c_api/classnvinfer1_1_1_i_plugin_v2_i_o_ext.html]
+[https://blog.csdn.net/xuanwu_yan/article/details/111463822]
+[https://zhuanlan.zhihu.com/p/296861242]
